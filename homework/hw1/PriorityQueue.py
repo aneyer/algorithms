@@ -5,7 +5,7 @@ class PriorityQueue:
     def add(self, item):
         if (isinstance(item, int) or isinstance(item, long) or isinstance(item, float) or isinstance(item, complex)): #run through rest of code if item added is a number (int, long, float, or complex)
             self.data.append(item)
-            self.sift_up(len(self.data) - 1)
+            self.sift_up(self.__len__() - 1)
             return self
         else: 
             raise TypeError, "You can only add numbers."
@@ -24,11 +24,11 @@ class PriorityQueue:
         return self.data[0]
 		
     def remove(self):
-        if(len(self.data)==1):
+        if(self.__len__()==1):
             self = []
         else:
             top = self.peek(); # return value at top
-            self.data[0] = self.data[len(self.data) - 1] # replace top node with value of last slot
+            self.data[0] = self.data[self.__len__() - 1] # replace top node with value of last slot
             self.data.pop() # destroy last slot
             self.sift_down(0) #sift down
         return top
@@ -49,9 +49,9 @@ class PriorityQueue:
     # sift down the element at index i
     def sift_down(self, i):
         child = (i*2)+1
-        if child < len(self.data): # stops if you don't have kids or if you have exceeded queue's list
+        if child < self.__len__(): # stops if you don't have kids or if you have exceeded queue's list
         # Do i have 2nd kid and is that kid the smallest? If i am bigger than my kid then flip parent with kid. put smaller kid in the parent's spot. ifparent is smaller then kid then stop and parent at position tehy want to be
-            if child+1 < len(self.data) and self.data[child +1] < self.data[child]: # is 2nd kid within bounds of queue and is kid2 < firstkid
+            if child+1 < self.__len__() and self.data[child +1] < self.data[child]: # is 2nd kid within bounds of queue and is kid2 < firstkid
                 child = child + 1            
             if self.data[i] > self.data[child]:
                 self.data[child], self.data[i] = self.data[i], self.data[child]
