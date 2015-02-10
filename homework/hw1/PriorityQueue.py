@@ -11,7 +11,7 @@ class PriorityQueue:
             raise TypeError, "You can only add numbers."
 
     def is_empty(self):
-        if len(self.data) == 0:
+        if self.__len__() == 0:
             return True
         else: 
             return False 
@@ -31,7 +31,7 @@ class PriorityQueue:
             self.data[0] = self.data[len(self.data) - 1] # replace top node with value of last slot
             self.data.pop() # destroy last slot
             self.sift_down(0) #sift down
-        return self
+        return top
 
     def __len__(self):
 		return len(self.data);
@@ -61,8 +61,8 @@ class PriorityQueue:
 
 
 
-
-""" s = PriorityQueue()
+"""
+s = PriorityQueue()
 test2 = PriorityQueue()
 test1 = PriorityQueue()
 print test1
@@ -77,8 +77,11 @@ test2.add(7)
 test2.add(0)
 test2.add(1)
 print 'The toString method of test2 says: ', test2.__str__()
-print 'In test2, I just removed: ', test2.remove()
-print 'In test2, I just removed: ', test2.remove()
+# print 'In test2, I just removed: ', test2.remove()
+# print 'In test2, I just removed: ', test2.remove()
+print 'I am removing' 
+print test2.remove()
+print test2.remove()
 print 'In test2, I just added a 2: ', test2.add(2)
 print 'In test2, I just removed: ', test2.remove()
 test2.add(4)
@@ -101,5 +104,4 @@ print 'The length of s is: ', s.__len__()
 print 'The toString method output of s is: ', s.__str__()
 print s
 print 'peek is being called. I just peeked in s and the following appeared: ', s.peek()
-
 """
