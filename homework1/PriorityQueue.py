@@ -50,7 +50,7 @@ class PriorityQueue:
     def sift_down(self, i):
         child = (i*2)+1
         if child < self.__len__(): # stops if you don't have kids or if you have exceeded queue's list
-        # Do i have 2nd kid and is that kid the smallest? If i am bigger than my kid then flip parent with kid. put smaller kid in the parent's spot. ifparent is smaller then kid then stop and parent at position tehy want to be
+        # Do I have 2nd kid and is that kid the smallest? If I am bigger than my kid then flip parent with kid. put smaller kid in the parent's spot. If parent is smaller then kid then stop and parent at position they want to be
             if child+1 < self.__len__() and self.data[child +1] < self.data[child]: # is 2nd kid within bounds of queue and is kid2 < firstkid
                 child = child + 1            
             if self.data[i] > self.data[child]:
