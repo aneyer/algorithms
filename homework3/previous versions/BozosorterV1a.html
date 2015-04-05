@@ -1,0 +1,125 @@
+<html>
+<body>
+	<p id="result"></p>
+
+	<script type='text/javascript'>
+	
+	/**
+	* This program has a bozosort method for integer arrrays and also prints a little table showing the average number of swaps required to sort arrays of various sizes. 
+	*/
+	
+	
+	/**
+	* This function returns whether the given array is sorted. 
+	*/
+	function isSorted(array){
+		for(var i = 1; i< a.length; i++){
+			if(a[i-1] > a[i]){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	* Does a bozosort on given array and returns the number of swaps required to sort given array. 
+	*/
+	function bozoSort(array){
+		var swaps = 0;
+		while(!isSorted(array)){
+			var index1 = Math.floor((Math.random() * array.length));
+			var index2 = Math.floor((Math.random() * array.length));
+
+			if(index1 != index2){ //side programming note: in javascript != does not consider type so a string "8" is the same as the integer 8
+				var tempHolder = array[index2];
+				array[index2] = array[index1];
+				array[index1] = tempHolder;
+				swaps = swaps+1; 
+
+			}
+			
+		}
+		return swaps;
+	}
+
+
+	/**
+	* Returns a randomly filled in integer array for a given size.
+	*/
+
+	function generateRandomArray(size){
+		a = [];
+		maxRange = 10000000; 
+		for(var i = 0; i<size; i++){
+			a[i]= Math.floor((Math.random() * maxRange));
+
+		}
+		return a;
+
+	}
+
+
+
+	function generateTable(){
+		//try 25 sorts at each size, recording average number of swaps
+		var iterations = 25;
+		console.log("\n Size    Average Number of swaps \n");
+		console.log("--------------------------------------"); 
+		//document.write("\n <h1> Size    Average Number of swaps </h1>\n");
+		//document.write("-----------------------------------------");
+		for(var trial = 1; trial < 15; trial++){
+			var totalSwaps = 0;
+			for(int j = 0; j < iterations; j++){
+				totalSwaps += bozoSort(generaterandomArray(trialSize));
+
+			}
+			//document.write("total: ",total, "<h1>Hello World!</h1><p>Have a nice day!</p>");
+
+			console.log(trialSize  (totalSwaps/iterations) \n);
+//			document.write(trialSize," ", (totalSwaps/iterations), "\n");
+		}	
+
+	}
+
+	generateTable();
+
+	//document.write("hi");
+
+
+/*	function generaterandomArray(size){
+			var a = []
+			while(a.length < size){
+				var randomnumber=Math.ceil(Math.random()*100)
+				var found=false;
+			for(var i=0;i<arr.length;i++){
+				if(arr[i]==randomnumber){found=true;break}
+			  }
+			  if(!found)arr[arr.length]=randomnumber;
+			}
+			document.write(arr);
+		}
+
+*/
+
+
+	
+	/*	function myFunction() {
+			document.getElementById("demo").innerHTML = Math.random();
+		}
+		
+		
+
+		generaterandomArray();
+		document.write("\n <P> hi")
+		alert('test');		
+		myFunction();
+		
+*/
+
+
+
+
+		
+	</script>
+</body>
+</html>
