@@ -1,6 +1,7 @@
 // Driver program to test above function
 #include <stdbool.h> //Allison's addition to this code (added so program would support bool variables)
-#include "subsetSumAlternativeApproach.c" //Allison's addition to this code so tester file can see subsetSumAlternativeApproach.c file
+#include "originalSubsetSum.c" //Allison's addition to this code so tester file can see originalSubsetSum.c file
+//#include "subsetSum.c" //Allison's addition to this code so tester file can see subsetSum.c file
 
 void test(int set[], int n, int sum){
   if (isSubsetSum(set, n, sum) == true){
@@ -27,11 +28,16 @@ int main(){
   int n3 = sizeof(set3)/sizeof(set3[0]);
   int threeSetN = sizeof(threeSet)/sizeof(threeSet[0]);
   int repeated3SetN = sizeof(repeated3Set)/sizeof(repeated3Set[0]);
-  printf("\n threeSet Test:");
+	
+  printf("\n\nSet 1 test: \n");
+  test(set, n, zeroSum);
+  printf("\nshould be true. found null subset which is always a subset of every set");
+  printf("\n\n threeSet Test:\n");
   test(threeSet, threeSetN, sixSum); //I assume that function can't use one element repeatedly to make the sum. So, for example, can't repeatedly add 3 to get 6
-  printf("\n repeated3Set Test:");
+  printf("\n should be false \n I assume that function can't use one element repeatedly to make the sum. So, for example, can't repeatedly add 3 to get 6\n");
+  printf("\n\n repeated3Set Test:\n");
   test(repeated3Set, repeated3SetN, sixSum);
-  printf("should find subset since 3+3 = 6");
+  printf("\nshould find subset since 3+3 = 6");
   printf("\n\n\n*********");
   printf("\n\nTest 1:");
   test(set, n, sum);

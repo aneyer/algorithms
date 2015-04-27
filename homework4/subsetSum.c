@@ -33,13 +33,13 @@ bool isSubsetSum(int set[], int n, int sum){
      }
  
     // uncomment this code to print table
-	/*printf("\nTable: \n");
+	printf("\nTable: \n");
      for (int i = 0; i <= sum; i++){
        for (int j = 0; j <= n; j++){
           printf ("%4d", subset[i][j]);
 	   }
        printf("\n");
      } 
-    */
+    
      return subset[sum][n];
 }
