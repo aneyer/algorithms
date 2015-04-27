@@ -1,6 +1,6 @@
 // Driver program to test above function
 #include <stdbool.h> //Allison's addition to this code (added so program would support bool variables)
-#include "subsetSum.c" //Allison's addition to this code so tester file can see subsetSum.c file
+#include "subsetSumAlternativeApproach.c" //Allison's addition to this code so tester file can see subsetSum.c file
 
 void test(int set[], int n, int sum){
   if (isSubsetSum(set, n, sum) == true){
