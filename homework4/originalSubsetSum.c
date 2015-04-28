@@ -24,9 +24,11 @@ bool isSubsetSum(int set[], int n, int sum){
      // Fill the subset table in bottom up manner
      for (int i = 1; i <= sum; i++){
        for (int j = 1; j <= n; j++){
-			subset[i][j] = subset[i][j-1];
-			if (i >= set[j-1]){
-				subset[i][j] = subset[i][j] || subset[i - set[j-1]][j-1];
+			subset[i][j] = subset[i][j-1]; // If last element is greater than sum, then ignore it // holds whether I can make sum i from size j-1 (where j is the number of elements of the given set)
+			if (i >= set[j-1]){ //if the sum target (i) is bigger than the candidate element of the given set (set[j-1])
+				subset[i][j] = subset[i][j] || subset[i - set[j-1]][j-1];  //recursion logic: check if sum can be obtained by any of the following
+     // (a) including the last element (you can make the sum including the last element: subset[i][j]). we look at the same sum including the last candidate element of given set
+     // (b) excluding the last element (subset[i - set[j-1][j-1]). we look at the sum excluding the candidate element not included
 			}
        }
      }
